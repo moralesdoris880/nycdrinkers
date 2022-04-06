@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
+import Home from "./Home";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,7 +33,7 @@ function App() {
             <h1>Im success</h1>
           </Route>
           <Route path="/">
-            <h1>Im home</h1>
+            <Home />
           </Route>
         </Switch>
       </div>
