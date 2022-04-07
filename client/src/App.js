@@ -33,7 +33,7 @@ function App() {
             <h1>Im success</h1>
           </Route>
           <Route path="/">
-            <Home />
+            <Home user={user}/>
           </Route>
         </Switch>
       </div>

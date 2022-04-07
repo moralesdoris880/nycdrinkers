@@ -1,6 +1,7 @@
 import React, {useState,useEffect } from "react";
+import Drink from "./Drink";
 
-function Home(){
+function Home({user}){
     const[topdrinks,setTopDrinks]=useState([])
 
     useEffect(() => {
@@ -12,6 +13,13 @@ function Home(){
         });
       }, []);
     
+    if(!user)return(
+      <div id="myImages">
+          <img id="cover"src={require('./media/whiskey.jpg')}>
+            
+          </img>
+      </div>);
+    else 
     return(
         <div>
             <div id="myImages">
@@ -19,8 +27,8 @@ function Home(){
             </div>
 
             <div id="topdrinklist">
-                <h1>All Drinks Recorded</h1>
-                { topdrinks.map((drink) => <p>{drink.name}</p>)
+                <h1>All Drinks</h1>
+                { topdrinks.map((drink) => <Drink drink={drink}/>)
                 }
             </div>
         </div>

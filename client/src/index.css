@@ -18,3 +18,7 @@ code {
   object-fit: cover;
   object-position: 10% 50%; 
 }
+
+.checked {
+  color: orange;
+}
