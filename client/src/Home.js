@@ -3,7 +3,7 @@ import Drink from "./Drink";
 
 function Home({user}){
     const[topdrinks,setTopDrinks]=useState([])
-
+    console.log(topdrinks)
     useEffect(() => {
         // auto-login
         fetch("/drinks").then((r) => {
@@ -28,7 +28,7 @@ function Home({user}){
 
             <div id="topdrinklist">
                 <h1>All Drinks</h1>
-                { topdrinks.map((drink) => <Drink drink={drink}/>)
+                { topdrinks.map((drink) => <Drink drink={drink} user={user}/>)
                 }
             </div>
         </div>
