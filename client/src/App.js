@@ -4,9 +4,11 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 import Home from "./Home";
+import Search from "./Search";
 
 function App() {
   const [user, setUser] = useState(null);
+  const[searchAnswers,setSearchAnswers] = useState([]);
 
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <NavBar user={user} setUser={setUser} />
+    <NavBar user={user} setUser={setUser} setSearchAnswers={setSearchAnswers}/>
       <div className="App">
         <Switch>
           <Route path="/login">
@@ -29,8 +31,8 @@ function App() {
           <Route path="/signup">
             <Signup setUser={setUser}/>
           </Route>
-          <Route path="/success">
-            <h1>Im success</h1>
+          <Route path="/search">
+            <Search searchAnswers={searchAnswers} user={user}/>
           </Route>
           <Route path="/">
             <Home user={user}/>

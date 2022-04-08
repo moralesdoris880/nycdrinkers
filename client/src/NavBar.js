@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
-function NavBar({user, setUser}){
+function NavBar({user, setUser, setSearchAnswers}){
 
     function handleLogout(){
         fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -14,8 +15,6 @@ function NavBar({user, setUser}){
         return(
         <div style={{display: 'flex'}}>
             <Link to="/"><h1>NYC Drinkers Society</h1></Link>
-            <input placeholder="Find drinks, restaurants..."></input>
-            <button>Search</button>
             <button>
             <Link to="/login">Login</Link>
             </button>
@@ -26,8 +25,9 @@ function NavBar({user, setUser}){
         return(
             <div style={{display: 'flex'}}>
             <Link to="/"><h1>NYC Drinkers Society</h1></Link>
-            <input placeholder="Find drinks, restaurants..."></input>
-            <button>Search</button>
+            <div>
+            <Button setSearchAnswers={setSearchAnswers}/>
+            </div>
             <button onClick={handleLogout}>Logout</button>
             </div>
         )

@@ -3,9 +3,8 @@ import Drink from "./Drink";
 
 function Home({user}){
     const[topdrinks,setTopDrinks]=useState([])
-    console.log(topdrinks)
+    
     useEffect(() => {
-        // auto-login
         fetch("/drinks").then((r) => {
           if (r.ok) {
             r.json().then((drinks) => setTopDrinks(drinks));

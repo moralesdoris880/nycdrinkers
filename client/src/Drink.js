@@ -66,7 +66,7 @@ function Drink({drink, user}){
                     <input type="text" placeholder="Comment here" onChange={(e) => setComment(e.target.value)} style={{display: display? "block":"none"}}></input>
                     <button onClick={handleRating} style={{display: display? "block":"none"}}>Rate</button>
                 </div>
-                <p>Found at:{drink.restaurant.name}</p>
+                <p>Found at: {drink.restaurant.name}</p>
             </div>
         </div>
     );
