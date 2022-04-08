@@ -66,6 +66,12 @@ function Drink({drink, user}){
                     <input type="text" placeholder="Comment here" onChange={(e) => setComment(e.target.value)} style={{display: display? "block":"none"}}></input>
                     <button onClick={handleRating} style={{display: display? "block":"none"}}>Rate</button>
                 </div>
+                <div>
+                {x.map(y=> {
+                        return(
+                        <span className={star<=y-1?"fa fa-star" : "fa fa-star checked"} onClick={(e)=>handleChange(e,y)} style={{display: display? "block":"none"}}/>)
+                    })}
+                </div>
                 <p>Found at: {drink.restaurant.name}</p>
             </div>
         </div>

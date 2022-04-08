@@ -5,6 +5,8 @@ import NavBar from "./NavBar";
 import Signup from "./Signup";
 import Home from "./Home";
 import Search from "./Search";
+import TermsOfService from "./TermsOfService";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -33,6 +35,12 @@ function App() {
           </Route>
           <Route path="/search">
             <Search searchAnswers={searchAnswers} user={user}/>
+          </Route>
+          <Route path="/terms-of-service">
+            <TermsOfService/>
+          </Route>
+          <Route path="/privacy-policy">
+            <PrivacyPolicy/>
           </Route>
           <Route path="/">
             <Home user={user}/>
