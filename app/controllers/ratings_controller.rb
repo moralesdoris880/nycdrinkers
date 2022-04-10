@@ -11,6 +11,11 @@ class RatingsController < ApplicationController
         end
     end
 
+    def all
+        ratings = Rating.all
+        render json: ratings
+    end
+
     def create
         current_user = User.find_by(id:session[:user_id])
         if current_user

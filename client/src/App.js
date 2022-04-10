@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Login from "./Login";
 import NavBar from "./NavBar";
@@ -47,6 +47,8 @@ function App() {
           </Route>
         </Switch>
       </div>
+      <Link to="/privacy-policy"><p>Private Policy</p></Link>
+      <Link to="/terms-of-service"><p>Terms Of Service</p></Link>
     </BrowserRouter>
   );
 }

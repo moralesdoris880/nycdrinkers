@@ -5,14 +5,16 @@ function Drink({drink, user}){
     const[display,setDisplay] = useState(true)
     const[displayrating,setDisplayRating] = useState(true)
     const x =[1,2,3,4,5]
-    const[ratings,setRatings] = useState([])
+    const[ratings,setRatings] = useState(0)
 
     useEffect(() => {
         // auto-login
         fetch("/ratings").then((r) => {
           if (r.ok) {
             r.json().then((drink_ratings) => {
-                checkRatings(drink_ratings)} );
+                checkRatings(drink_ratings)
+                handleAverageRating(drink_ratings,drink)
+              } );
           }
         });
       }, [display]);
@@ -33,7 +35,9 @@ function Drink({drink, user}){
             }),
           }).then((r) => {
             if (r.ok) {
-              r.json().then(() => setDisplay(!display));
+              r.json().then(() => {
+                setDisplay(!display)
+                });
             } else {
               r.json().then(() => console.log("Rating not created :<"));
             }
@@ -42,21 +46,34 @@ function Drink({drink, user}){
 
     function handleChange (e,y) {
         e.preventDefault();
-        console.log(y)
         setStar(Number(y))
     }
 
     function checkRatings(drink_ratings){
-        let answer =drink_ratings.some((rating)=> drink.id === rating.drink.id)
+        let answer = drink_ratings.some((rating)=> drink.id === rating.drink.id)
         return setDisplayRating(!answer)
     }
 
+    function handleAverageRating(drink_ratings,drink){
+        let average = drink_ratings.filter((rating) => rating.drink.id === drink.id)
+        let div = average.length
+        let sum = average.reduce((pre,curr)=>pre+curr.drink_rating,0)
+        console.log(sum/div)
+        if (isNaN(sum/div)) {
+          return 'Not a Number!';
+        }
+        else{
+        return setRatings(sum/div)
+        }
+      }
     
     return(
         <div style={{display: "flex"}}>
             <img src="https://via.placeholder.com/150"/>
             <div>
                 <h1>{drink.name}</h1>
+                <span className="fa fa-star checked"></span>
+                <p>{ratings}/5</p>
                 <p>{drink.ingredients}</p>
                 <div id="rating_form" style={{display: displayrating? "block":"none"}}>
                     {x.map(y=> {
@@ -67,10 +84,6 @@ function Drink({drink, user}){
                     <button onClick={handleRating} style={{display: display? "block":"none"}}>Rate</button>
                 </div>
                 <div>
-                {x.map(y=> {
-                        return(
-                        <span className={star<=y-1?"fa fa-star" : "fa fa-star checked"} onClick={(e)=>handleChange(e,y)} style={{display: display? "block":"none"}}/>)
-                    })}
                 </div>
                 <p>Found at: {drink.restaurant.name}</p>
             </div>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'
+  get '/all', to: 'ratings#all'
+
 
   get '*path',
       to: 'fallback#index',
