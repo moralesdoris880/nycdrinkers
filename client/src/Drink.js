@@ -6,6 +6,7 @@ function Drink({drink, user}){
     const[displayrating,setDisplayRating] = useState(true)
     const x =[1,2,3,4,5]
     const[ratings,setRatings] = useState(0)
+    const[displayavg,setDisplayAvg]= useState(true)
 
     useEffect(() => {
         // auto-login
@@ -60,6 +61,7 @@ function Drink({drink, user}){
         let sum = average.reduce((pre,curr)=>pre+curr.drink_rating,0)
         console.log(sum/div)
         if (isNaN(sum/div)) {
+          setDisplayAvg(false)
           return 'Not a Number!';
         }
         else{
@@ -72,8 +74,8 @@ function Drink({drink, user}){
             <img src="https://via.placeholder.com/150"/>
             <div>
                 <h1>{drink.name}</h1>
-                <span className="fa fa-star checked"></span>
-                <p>{ratings}/5</p>
+                <span style={{display: displayavg? "block":"none"}} className="fa fa-star checked"></span>
+                <p style={{display: displayavg? "block":"none"}}>{ratings}/5</p>
                 <p>{drink.ingredients}</p>
                 <div id="rating_form" style={{display: displayrating? "block":"none"}}>
                     {x.map(y=> {
