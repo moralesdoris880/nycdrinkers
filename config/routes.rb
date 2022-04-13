@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'
   get '/all', to: 'ratings#all'
+  get '/user_ratings', to: 'ratings#user_ratings'
 
 
   get '*path',

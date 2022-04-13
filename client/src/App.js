@@ -7,6 +7,7 @@ import Home from "./Home";
 import Search from "./Search";
 import TermsOfService from "./TermsOfService";
 import PrivacyPolicy from "./PrivacyPolicy";
+import SavedDrinks from "./SavedDrinks";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route path="/privacy-policy">
             <PrivacyPolicy/>
+          </Route>
+          <Route path="/saved">
+            <SavedDrinks/>
           </Route>
           <Route path="/">
             <Home user={user}/>

@@ -9,7 +9,6 @@ function Drink({drink, user}){
     const[displayavg,setDisplayAvg]= useState(true)
 
     useEffect(() => {
-        // auto-login
         fetch("/ratings").then((r) => {
           if (r.ok) {
             r.json().then((drink_ratings) => {
@@ -83,8 +82,6 @@ function Drink({drink, user}){
                     })}
                     <input type="text" placeholder="Comment here" onChange={(e) => setComment(e.target.value)} style={{display: display? "block":"none"}}></input>
                     <button onClick={handleRating} style={{display: display? "block":"none"}}>Rate</button>
-                </div>
-                <div>
                 </div>
                 <p>Found at: {drink.restaurant.name}</p>
             </div>

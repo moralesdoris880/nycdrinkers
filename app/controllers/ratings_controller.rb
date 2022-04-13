@@ -11,6 +11,15 @@ class RatingsController < ApplicationController
         end
     end
 
+    def user_ratings
+        user = User.find_by(id:session[:user_id])
+        if user
+            render json: user.ratings.all,include: [:drink], status: :accepted
+        else
+            render json: {errors: ['Not found']}, status: :unauthorized
+        end
+    end
+
     def all
         ratings = Rating.all
         render json: ratings
@@ -30,7 +39,7 @@ class RatingsController < ApplicationController
         rating = Rating.find_by(id: params[:id])
         if rating
             rating.update(rating_params)
-            render json: rating, status: :accepted
+            render json: rating,include: [:drink], status: :accepted
         else
             render json: {error: 'Not Found'}, status: :not_found
         end
