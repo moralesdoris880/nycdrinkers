@@ -26,6 +26,26 @@ class RatingsController < ApplicationController
         end
     end
 
+    def update
+        rating = Rating.find_by(id: params[:id])
+        if rating
+            rating.update(rating_params)
+            render json: rating, status: :accepted
+        else
+            render json: {error: 'Not Found'}, status: :not_found
+        end
+    end
+
+    def destroy
+        rating = Rating.find_by(id: params[:id])
+        if rating
+            rating.destroy
+            head :no_content
+        else
+            render json: {error: 'Not Found'}, status: :not_found
+        end
+    end
+
     private
 
     def rating_params

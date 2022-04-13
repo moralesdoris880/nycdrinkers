@@ -59,7 +59,6 @@ function Drink({drink, user}){
         let average = drink_ratings.filter((rating) => rating.drink.id === drink.id)
         let div = average.length
         let sum = average.reduce((pre,curr)=>pre+curr.drink_rating,0)
-        console.log(sum/div)
         if (isNaN(sum/div)) {
           setDisplayAvg(false)
           return 'Not a Number!';
