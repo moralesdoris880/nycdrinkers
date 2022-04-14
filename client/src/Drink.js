@@ -68,9 +68,9 @@ function Drink({drink, user}){
       }
     
     return(
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex"}} className="drinkcard">
             <img src="https://via.placeholder.com/150"/>
-            <div>
+            <div className="drinkcontents">
                 <h1>{drink.name}</h1>
                 <span style={{display: displayavg? "block":"none"}} className="fa fa-star checked"></span>
                 <p style={{display: displayavg? "block":"none"}}>{ratings}/5</p>
