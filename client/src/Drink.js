@@ -71,19 +71,28 @@ function Drink({drink, user}){
         <div style={{display: "flex"}} className="drinkcard">
             <img src="https://via.placeholder.com/150"/>
             <div className="drinkcontents">
+              <div className="drinkcontenttop">
                 <h1>{drink.name}</h1>
                 <span style={{display: displayavg? "block":"none"}} className="fa fa-star checked"></span>
                 <p style={{display: displayavg? "block":"none"}}>{ratings}/5</p>
+              </div>
+              <div className="drinkcontentbottom">
                 <p>{drink.ingredients}</p>
                 <div id="rating_form" style={{display: displayrating? "block":"none"}}>
+                  <div className="drinkcontentstarratings">
                     {x.map(y=> {
                         return(
                         <span className={star<=y-1?"fa fa-star" : "fa fa-star checked"} onClick={(e)=>handleChange(e,y)} style={{display: display? "block":"none"}}/>)
                     })}
+                  </div>
+                  <div className="drinkcontentmid">
                     <input type="text" placeholder="Comment here" onChange={(e) => setComment(e.target.value)} style={{display: display? "block":"none"}}></input>
                     <button onClick={handleRating} style={{display: display? "block":"none"}}>Rate</button>
+                  </div>
                 </div>
+                <p style={{display: displayrating? "none":"block"}}>Thank you for submitting!</p>
                 <p>Found at: {drink.restaurant.name}</p>
+              </div>
             </div>
         </div>
     );

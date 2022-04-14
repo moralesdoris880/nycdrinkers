@@ -46,6 +46,11 @@ h1{
   margin: 0;
 }
 
+p{
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
 
 #cover{
   width: 100%;
@@ -107,7 +112,7 @@ h1{
 }
 
 #hometitle{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   text-align: center;
 }
 
@@ -149,3 +154,51 @@ h1{
   padding-left: 10px;
 }
 
+.drinkcontenttop{
+  display: flex;
+  align-items: baseline;
+}
+
+.drinkcontenttop span{
+  padding-left: 10px;
+}
+
+.drinkcontenttop h1{
+  font-family: 'Playfair Display', serif;
+}
+
+.drinkcontentbottom p{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.drinkcontentstarratings{
+  display: flex;
+  padding-left: 0;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.drinkcontentstarratings span{
+  padding: 2px;
+}
+
+.drinkcontentmid{
+  display: flex;
+}
+
+.drinkcontentmid button{
+  background-color: black;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+  border: none;
+}
+
+.drinkcontentmid input{
+  border: black 1px solid;
+  padding: 5px;
+  font-family: 'PT Sans', sans-serif;
+}
