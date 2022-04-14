@@ -37,17 +37,10 @@
   
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 #cover{
   width: 100%;
@@ -59,3 +52,80 @@ code {
 .checked {
   color: orange;
 }
+
+.navbar{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  justify-content: flex-end;
+  box-shadow: 0px 0 5px 1px white;
+}
+
+.logo{
+  margin: 0;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px;
+  position: absolute;
+  left: 5px;
+  top: 0;
+}
+
+#searchsubmit{
+  background-color: black;
+  color: white;
+  border: white 1px solid; /* border prop : COLOR SIZE STYLE */
+  font-family: 'PT Sans', sans-serif;
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+  position: absolute;
+  right: 50px;
+  top: 9px;
+}
+
+#searchbar{
+  height: 26px;
+  border: white 1px solid;
+  font-size: 18px;
+  top: 9px;
+  position: absolute;
+  right: 150px;
+}
+
+#search{
+  align-items: center;
+  height: 30px;
+  overflow: hidden;
+}
+
+#hometitle{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+#mininavbar{
+  position: absolute;
+  top: 50px;
+  height: 150px;
+  width: 200px;
+  float: right;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: center;
+  background-color: black;
+  font-family: 'PT Sans', sans-serif;
+  box-shadow: 0px 0px 5px 1px white;
+}
+
+#logout{
+  background-color: black;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  border: 0;
+  font-size: 16px;
+}
+
+

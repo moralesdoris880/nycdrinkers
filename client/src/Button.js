@@ -33,9 +33,9 @@ function Button({setSearchAnswers}){
 
     return(
         <div>
-        <form onSubmit={handleSearch}>
-            <input placeholder="Find drinks... " onChange={(e)=>setQuery(e.target.value)}></input>
-            <input type="submit" value="Search"></input>
+        <form onSubmit={handleSearch} id="search">
+            <input id="searchbar" placeholder="Find drinks... " onChange={(e)=>setQuery(e.target.value)}></input>
+            <input id="searchsubmit" type="submit" value="Search"></input>
         </form>
         {searchFound? <Redirect to="/search" /> : null}
         </div>

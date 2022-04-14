@@ -26,7 +26,7 @@ function Home({user}){
             </div>
 
             <div id="topdrinklist">
-                <h1>All Drinks</h1>
+                <h1 id="hometitle">All Drinks</h1>
                 { topdrinks.map((drink) => <Drink drink={drink} user={user}/>)
                 }
             </div>
