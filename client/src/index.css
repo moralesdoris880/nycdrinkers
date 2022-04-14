@@ -54,7 +54,7 @@ p{
 
 #cover{
   width: 100%;
-  height: 700px;
+  height: 750px;
   object-fit: cover;
   object-position: 10% 50%; 
 }
@@ -71,6 +71,7 @@ p{
   background-color: black;
   justify-content: flex-end;
   box-shadow: 0px 0 5px 1px white;
+  z-index: 100;
 }
 
 .logo{
@@ -112,8 +113,9 @@ p{
 }
 
 #hometitle{
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
+  padding-top: 60px;
 }
 
 #mininavbar{
@@ -147,6 +149,7 @@ p{
   padding: 10px;
   background-color: white;
   color: black;
+  overflow: scroll;
 }
 
 .drinkcontents{
@@ -201,4 +204,84 @@ p{
   border: black 1px solid;
   padding: 5px;
   font-family: 'PT Sans', sans-serif;
+}
+
+#bottomnavbar{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'PT Sans', sans-serif;
+}
+
+#bottomnavbar p:hover{
+  font-size: 18px;
+}
+
+.ratingcard{
+  display: flex;
+  width: 95%;
+  height: 200px;
+  margin-left: 1.7%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  overflow: scroll;
+}
+
+.ratingcard button{
+  background-color: #000;
+  border: none;
+  color: #fff;
+  font-family: PT Sans,sans-serif;
+  font-size: 18px;
+  height: 30px;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#ratingtitle{
+  top: 60px;
+  position: relative;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#ratingcontainer{
+  position: relative;
+  top: 60px;
+  margin-bottom: 70px;
+}
+
+.ratingcontent{
+  padding-left: 10px;
+}
+
+.ratingcardmid{
+  display: 'flex';
+  align-items: 'baseline';
+  padding-top: 10px;
+}
+
+.ratingcardmid span{
+  padding-left: 10px;
+}
+
+.privacytitle{
+  text-align: left;
+  padding-left: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.privacypolicycontent{
+  font-family: PT Sans,sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.privacypolicycard {
+  margin-bottom: 20px;
+  padding-top: 60px;
 }

@@ -23,10 +23,10 @@ function SavedDrinks(){
 
     return(
         <div>
-            <h1>My Drinks</h1>
-            <div>
+            <h1 id="ratingtitle">My Drinks</h1>
+            <div id="ratingcontainer">
                 {
-                    drinkRatings.map((rating)=> <RatingCard rating={rating} handleFilter={handleFilter} handleUpdate={handleUpdate}/>)
+                    drinkRatings.map((rating)=> <RatingCard rating={rating} handleFilter={handleFilter} handleUpdate={handleUpdate} />)
                 }
             </div>
         </div>

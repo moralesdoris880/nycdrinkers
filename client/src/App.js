@@ -52,8 +52,11 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <Link to="/privacy-policy"><p>Private Policy</p></Link>
-      <Link to="/terms-of-service"><p>Terms Of Service</p></Link>
+      <div id="bottomnavbar">
+        <Link to="/privacy-policy" style={{textDecoration: 'none', color: 'white'}}><p>Private Policy</p></Link>
+        <Link to="/terms-of-service" style={{textDecoration: 'none', color: 'white'}}><p>Terms Of Service</p></Link>
+        <p>© 2022 NYC Drinking Society</p>
+      </div>
     </BrowserRouter>
   );
 }
