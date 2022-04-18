@@ -31,10 +31,8 @@ function NavBar({user, setUser, setSearchAnswers}){
         return(
         <div className="navbar">
             <Link to="/" style={{ textDecoration: 'none' ,color: 'white'}}><h1 className="logo">NYC Drinkers Society</h1></Link>
-            <button>
-            <Link to="/login">Login</Link>
-            </button>
-            <button><Link to="/signup">Sign Up</Link></button>
+            <Link to="/login" style={{ textDecoration: 'none', color: 'white'}}> <button className="loginsignupbtn">Login</button></Link>
+            <Link to="/signup" style={{ textDecoration: 'none', color: 'white'}}> <button className="loginsignupbtn">Sign Up</button></Link>
         </div>
     )}
     else{
@@ -46,7 +44,7 @@ function NavBar({user, setUser, setSearchAnswers}){
                 <div id="mininavbar" style={{display: display? "flex":"none"}}>
                     <NavLink to="/" exact style={{ textDecoration: 'none', color: 'white'}} >HOME</NavLink>
                     <NavLink to="/saved" exact className="saved" style={{ textDecoration: 'none', color: 'white'}}>MY RATINGS</NavLink>
-                    <button onClick={handleLogout} id="logout">LOGOUT</button>
+                    <button onClick={handleLogout} className="logout">LOGOUT</button>
                 </div>
             </div>
         )

@@ -20,7 +20,7 @@ function Home({user}){
 
     if(!user)return(
       <div id="myImages">
-          <img id="cover"src={require('./media/whiskey.jpg')}>
+          <img className="cover"src={require('./media/whiskey.jpg')}>
             
           </img>
       </div>);
@@ -28,7 +28,7 @@ function Home({user}){
       return(
           <div>
               <div id="myImages">
-                  <img id="cover"src={require('./media/whiskey.jpg')}/>
+                  <img className="cover"src={require('./media/whiskey.jpg')}/>
               </div>
               <span className="material-icons" style={{fontSize: '48px', textAlign: 'center', position: 'relative', left: '45%'}} onClick={handleDownArrow}>keyboard_arrow_down</span>
               <div id="topdrinklist">

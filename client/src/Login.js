@@ -35,22 +35,22 @@ function Login({setUser}){
 
     return(
         <div>
-          <div style={{display: display1? "block":"none"}}>
+          <div className="login" style={{display: display1? "block":"none"}}>
             <h1>Log in to NYC Drinkers Society</h1>
             <p>New to NYC Drinkers Society?</p>
-            <button><Link to="/signup">Sign Up</Link></button>
+            <Link to="/signup"><button className="loginsignupbtn" style={{ margin: '10px'}}>Sign Up</button></Link>
             <p>By logging in, you agree to NYC Drinkers Society Terms of Service and Privacy Policy.</p>
-            <form onSubmit={handleLogin}>
-                <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}></input>
-                <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)}></input>
-                <input type="submit" value="Login"></input>
+            <form style={{display: 'flex', marginTop: '10px'}} onSubmit={handleLogin}>
+                <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} className="loginsignupinput"></input>
+                <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)} className="loginsignupinput" style={{ marginRight: '10px'}}></input>
+                <input type="submit" value="Login" className="loginsignupbtn"></input>
             </form>
           </div>
-          <div style={{display: display2? "block":"none"}}>
+          <div className="login" style={{display: display2? "block":"none"}}>
               <h1>Login Successful!</h1>
               <p>Welcome back {username} to the exclusive NYC Drinkers Society!</p>
-              <iframe src="https://giphy.com/embed/QsDeBGiPiGTbY2Fau1" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thegoodplace-nbc-the-good-place-tgp-QsDeBGiPiGTbY2Fau1">via GIPHY</a></p>
-              <button><Link to="/">Return Home</Link></button>
+              <iframe src="https://giphy.com/embed/QsDeBGiPiGTbY2Fau1" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thegoodplace-nbc-the-good-place-tgp-QsDeBGiPiGTbY2Fau1"></a></p>
+              <Link to="/"><button className="loginsignupbtn" >Home</button></Link>
           </div>
         </div>
     );

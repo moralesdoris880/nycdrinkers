@@ -8,7 +8,7 @@ function Search({searchAnswers,user}){
     if(searchAnswers.length===0) return <h1>Your search did not match any drinks. Please Try Again.</h1>
 
     return(
-        <div>
+        <div id="searchlist">
             {searchAnswers.map((drink) => <Drink drink={drink} user={user}/>)}
         </div>
     );
