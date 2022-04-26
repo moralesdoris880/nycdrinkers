@@ -2,7 +2,7 @@
 A web application for searching and rating drinks in New York City.
 
 ## About this Project
-This web application was made with JS, HTML5, CSS, React, Ruby, and Ruby on Rails. The focus of this project was to build an API backend using Ruby on Rails and React frontend that interacts with the database via the API. Another purpose of the project was to also practice user authentication and password protection.
+This web application was made with JS, HTML5, CSS, React, Ruby, and Ruby on Rails. The focus of this project was to build an API backend using Ruby on Rails and React frontend that interacts with the database via the API. Another purpose of the project was to also practice user authentication and password protection with Bcrypt.
 
 ## Acknowledgments
 
