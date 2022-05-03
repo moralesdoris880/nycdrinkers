@@ -7,6 +7,7 @@ function Drink({drink, user}){
     const x =[1,2,3,4,5]
     const[ratings,setRatings] = useState(0)
     const[displayavg,setDisplayAvg]= useState(true)
+    const[drinkusers, setDrinkUsers] = useState([]); 
 
     useEffect(() => {
         fetch("/ratings").then((r) => {
@@ -14,14 +15,19 @@ function Drink({drink, user}){
             r.json().then((drink_ratings) => {
                 checkRatings(drink_ratings)
                 handleAverageRating(drink_ratings,drink)
-              } );
-          }
-        });
-      }, [display]);
+              } );}
+    });}, [display]);
+
+    useEffect(() => {
+          fetch(`/drinks/${drink.id}`).then((r) => {
+            if (r.ok) {
+              r.json().then((users) => {
+                  setDrinkUsers(users.map((rating)=> rating.username))
+                } );}
+    });}, [drink]);
 
     function handleRating(e){
         e.preventDefault();
-        console.log(star)
         fetch("/ratings", {
             method: "POST",
             headers: {
@@ -42,6 +48,7 @@ function Drink({drink, user}){
               r.json().then(() => console.log("Rating not created :<"));
             }
           });
+        
     }
 
     function handleChange (e,y) {
@@ -92,6 +99,7 @@ function Drink({drink, user}){
                 </div>
                 <p style={{display: displayrating? "none":"block"}}>Thank you for submitting!</p>
                 <p>Found at: {drink.restaurant.name}</p>
+                <p>People who have rated: {drinkusers}</p>
               </div>
             </div>
         </div>

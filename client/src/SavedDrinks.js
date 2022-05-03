@@ -13,20 +13,12 @@ function SavedDrinks(){
         });
       }, []);
 
-    function handleUpdate(data){
-        setDrinkRatings(drinkRatings.map(rating => rating.id === data.id ? data : rating))
-    }
-
-    function handleFilter(data){
-        setDrinkRatings(drinkRatings.filter(rating => rating.id !== data.id));   
-    }
-
     return(
         <div>
             <h1 id="ratingtitle">My Drinks</h1>
             <div id="ratingcontainer">
                 {
-                    drinkRatings.map((rating)=> <RatingCard rating={rating} handleFilter={handleFilter} handleUpdate={handleUpdate} />)
+                    drinkRatings.map((rating)=> <RatingCard rating={rating} setDrinkRatings={setDrinkRatings} drinkRatings={drinkRatings}/>)
                 }
             </div>
         </div>

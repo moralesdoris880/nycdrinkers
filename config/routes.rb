@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :drinks, only: [:index]
+  resources :drinks, only: [:index,:show]
   resources :restaurants, only: [:index]
   resources :ratings
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'
-  get '/all', to: 'ratings#all'
   get '/user_ratings', to: 'ratings#user_ratings'
+  get '/users', to: 'ratings#users'
 
 
   get '*path',

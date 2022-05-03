@@ -14,15 +14,10 @@ class RatingsController < ApplicationController
     def user_ratings
         user = User.find_by(id:session[:user_id])
         if user
-            render json: user.ratings.all,include: [:drink], status: :accepted
+            render json: user.ratings,include: [:drink], status: :accepted
         else
             render json: {errors: ['Not found']}, status: :unauthorized
         end
-    end
-
-    def all
-        ratings = Rating.all
-        render json: ratings
     end
 
     def create
@@ -36,7 +31,8 @@ class RatingsController < ApplicationController
     end
 
     def update
-        rating = Rating.find_by(id: params[:id])
+        user =  User.find_by(id: session[:user_id])
+        rating = user.ratings.find_by(id: params[:id])
         if rating
             rating.update(rating_params)
             render json: rating,include: [:drink], status: :accepted
@@ -46,10 +42,11 @@ class RatingsController < ApplicationController
     end
 
     def destroy
-        rating = Rating.find_by(id: params[:id])
+        user =  User.find_by(id: session[:user_id])
+        rating = user.ratings.find_by(id: params[:id])
         if rating
             rating.destroy
-            head :no_content
+            render json: {}
         else
             render json: {error: 'Not Found'}, status: :not_found
         end
@@ -58,7 +55,7 @@ class RatingsController < ApplicationController
     private
 
     def rating_params
-        params.permit(:comment,:drink_rating,:user_id,:drink_id)
+        params.permit(:comment,:drink_rating,:drink_id) 
     end
 
     def render_unprocessable_entity(invalid)

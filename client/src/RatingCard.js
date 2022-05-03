@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function RatingCard({rating, handleFilter, handleUpdate}){
+function RatingCard({rating, setDrinkRatings, drinkRatings}){
     const[rate,setRate]= useState(0);
     const[comment,setComment]= useState("");
     const[display,setDisplay]= useState(false);
@@ -23,13 +23,23 @@ function RatingCard({rating, handleFilter, handleUpdate}){
     function handleDelete(e,id){
         e.preventDefault();
         fetch(`ratings/${id}`,{method: 'DELETE'})
-            .then(response => response.json())
-            .then(data =>handleFilter(data))
+           // .then(response => response.json())
+            .then(data => handleFilter(id))
     }
 
     function handleEdit(e){
         e.preventDefault();
         setDisplay(!display);
+    }
+
+    function handleUpdate(data){
+        console.log(data)
+        setDrinkRatings(drinkRatings.map(rating => rating.id === data.id ? data : rating))
+    }
+
+    function handleFilter(id){
+        console.log(id)
+        setDrinkRatings(drinkRatings.filter(rating => rating.id !== id));   
     }
 
     return(
