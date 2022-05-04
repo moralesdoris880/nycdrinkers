@@ -12,6 +12,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def check_drinks
+        current_user = User.find_by(id:session[:user_id])
+        if current_user
+            render json: current_user.drinks
+        else
+            render json: {errors: ["Not authorized"]}, status: :unauthorized
+        end
+    end
+
     def create
         user = User.create!(user_params)
         if user.valid?

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
   get '/user_ratings', to: 'ratings#user_ratings'
   get '/users', to: 'ratings#users'
+  get '/check_drinks', to: 'users#check_drinks'
 
 
   get '*path',

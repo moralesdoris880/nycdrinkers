@@ -13,6 +13,7 @@ function NavBar({user, setUser, setSearchAnswers}){
               setUser(null);
             }
           });
+        
     }
 
     function handleMenu(){

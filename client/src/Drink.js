@@ -3,11 +3,12 @@ function Drink({drink, user}){
     const[star,setStar] = useState(0)
     const[comment,setComment] = useState("")
     const[display,setDisplay] = useState(true)
-    const[displayrating,setDisplayRating] = useState(true)
     const x =[1,2,3,4,5]
     const[ratings,setRatings] = useState(0)
     const[displayavg,setDisplayAvg]= useState(true)
     const[drinkusers, setDrinkUsers] = useState([]); 
+
+    const[displayrating,setDisplayRating] = useState(false) //false = none  true = block
 
     useEffect(() => {
         fetch("/ratings").then((r) => {
@@ -19,12 +20,29 @@ function Drink({drink, user}){
     });}, [display]);
 
     useEffect(() => {
+      // gets ratings off of drink
           fetch(`/drinks/${drink.id}`).then((r) => {
             if (r.ok) {
               r.json().then((users) => {
                   setDrinkUsers(users.map((rating)=> rating.username))
                 } );}
     });}, [drink]);
+
+    useEffect(() => {
+      // gets user drinks
+      fetch(`/check_drinks`).then((r) => {
+        if (r.ok) {
+          r.json().then(drinks => 
+            handleCheckRatings(drinks)
+          )}
+    });}, [user.id]);
+
+    function handleCheckRatings(drinks){
+      console.log(drinks)
+      let arr = drinks.filter(cocktail => cocktail.id === drink.id)
+      // slength is truthy
+      setDisplayRating(arr.length)
+    }
 
     function handleRating(e){
         e.preventDefault();
@@ -43,6 +61,7 @@ function Drink({drink, user}){
             if (r.ok) {
               r.json().then(() => {
                 setDisplay(!display)
+                setDisplayRating(true) 
                 });
             } else {
               r.json().then(() => console.log("Rating not created :<"));
@@ -58,7 +77,7 @@ function Drink({drink, user}){
 
     function checkRatings(drink_ratings){
         let answer = drink_ratings.some((rating)=> drink.id === rating.drink.id)
-        return setDisplayRating(!answer)
+        //return setDisplayRating(answer)
     }
 
     function handleAverageRating(drink_ratings,drink){
@@ -85,7 +104,7 @@ function Drink({drink, user}){
               </div>
               <div className="drinkcontentbottom">
                 <p>{drink.ingredients}</p>
-                <div id="rating_form" style={{display: displayrating? "block":"none"}}>
+                <div id="rating_form" style={{display: displayrating?"none":"block"}}>
                   <div className="drinkcontentstarratings">
                     {x.map(y=> {
                         return(
@@ -97,7 +116,7 @@ function Drink({drink, user}){
                     <button onClick={handleRating} style={{display: display? "block":"none"}}>Rate</button>
                   </div>
                 </div>
-                <p style={{display: displayrating? "none":"block"}}>Thank you for submitting!</p>
+                <p style={{display: displayrating? "block":"none"}}>Thank you for submitting!</p>
                 <p>Found at: {drink.restaurant.name}</p>
                 <p>People who have rated: {drinkusers}</p>
               </div>

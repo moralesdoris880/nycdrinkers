@@ -13,20 +13,20 @@ function App() {
   const [user, setUser] = useState(null);
   const[searchAnswers,setSearchAnswers] = useState([]);
 
-
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+        });
       }
     });
   }, []);
 
   return (
     <BrowserRouter>
-    <NavBar user={user} setUser={setUser} setSearchAnswers={setSearchAnswers}/>
+    <NavBar user={user} setUser={setUser} setSearchAnswers={setSearchAnswers} />
       <div className="App">
         <Switch>
           <Route path="/login">

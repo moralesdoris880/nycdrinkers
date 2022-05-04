@@ -21,7 +21,6 @@ function Home({user}){
     if(!user)return(
       <div id="myImages">
           <img className="cover"src={require('./media/whiskey.jpg')}>
-            
           </img>
       </div>);
     else 
@@ -33,8 +32,7 @@ function Home({user}){
               <span className="material-icons" style={{fontSize: '48px', textAlign: 'center', position: 'relative', left: '45%'}} onClick={handleDownArrow}>keyboard_arrow_down</span>
               <div id="topdrinklist">
                   <h1 id="hometitle">All Drinks</h1>
-                  { topdrinks.map((drink) => <Drink drink={drink} user={user}/>)
-                  }
+                  { topdrinks.map((drink) => <Drink drink={drink} user={user} />)}
               </div>
           </div>
       );
