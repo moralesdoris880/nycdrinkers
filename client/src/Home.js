@@ -12,6 +12,15 @@ function Home({user}){
         });
       }, []);
 
+
+      useEffect(() => {
+        fetch("/drinks3").then((r) => {
+          if (r.ok) {
+            r.json().then((drinks) => console.log(drinks));
+          }
+        });
+      }, []);
+
     function handleDownArrow(e){
       e.preventDefault();
       var element = document.getElementById("hometitle");
@@ -33,6 +42,9 @@ function Home({user}){
               <div id="topdrinklist">
                   <h1 id="hometitle">All Drinks</h1>
                   { topdrinks.map((drink) => <Drink drink={drink} user={user} />)}
+              </div>
+              <div>
+
               </div>
           </div>
       );

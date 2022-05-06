@@ -10,4 +10,9 @@ class DrinksController < ApplicationController
             render json: drink.users
         end
     end
+
 end
+
+
+
+# Create custom route that returns all drinks greater than 3 , class method that uses active record query methods 

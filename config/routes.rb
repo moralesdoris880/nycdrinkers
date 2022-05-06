@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/user_ratings', to: 'ratings#user_ratings'
   get '/users', to: 'ratings#users'
   get '/check_drinks', to: 'users#check_drinks'
+  get '/drinks3', to: 'ratings#drinks3'
 
 
   get '*path',

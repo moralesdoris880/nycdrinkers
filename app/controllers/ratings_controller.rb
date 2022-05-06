@@ -52,6 +52,17 @@ class RatingsController < ApplicationController
         end
     end
 
+    def drinks3
+        ratings = Rating.drinks3 #Class v Instance Method , debugging 
+        byebug
+        if ratings
+            render json: ratings
+        else
+            render json: {error: 'Not Found'}, status: :not_found
+        end
+    end
+
+
     private
 
     def rating_params
@@ -63,3 +74,6 @@ class RatingsController < ApplicationController
     end
 
 end
+
+
+
